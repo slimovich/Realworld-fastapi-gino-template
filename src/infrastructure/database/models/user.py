@@ -23,8 +23,8 @@ class UserQueries(IUserQueries):
 		return await UserModel.create(**user.__dict__)
 
 	async def update_user(self, old_user: UserModel, new_user: UserUpdateSchema) -> UserModel:
-		userUpdated = await old_user.update(**new_user.__dict__).apply()
-		return  userUpdated._instance
+		user_updated = await old_user.update(**new_user.__dict__).apply()
+		return  user_updated._instance
 
 	async def delete_user(self, user_id: int) -> UserModel:
 		return await UserModel.get(user_id).delete()

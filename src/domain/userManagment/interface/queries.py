@@ -16,7 +16,7 @@ class IUserQueries:
 		raise NotImplemented
 
 	@abstractmethod
-	async def update_user(self, old_user: UserDBSchema, new_user: UserUpdateSchema) -> UserModel:
+	async def update_user(self, old_user: UserModel, new_user: UserUpdateSchema) -> UserModel:
 		raise NotImplemented
 
 	@abstractmethod
