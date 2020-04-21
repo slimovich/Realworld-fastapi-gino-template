@@ -1,0 +1,20 @@
+# Pytest cache files
+.pytest_cache/
+
+# Pytest cache files
+.mypy_cache/
+
+# Desktop Services Store on macOS
+.DS_Store
+
+# Python cache directories
+__pycache__/
+
+# Jetbrains project files
+.idea/
+
+# vscode project files
+.vscode/
+
+# log file
+*.log
