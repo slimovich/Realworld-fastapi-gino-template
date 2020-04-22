@@ -22,7 +22,9 @@ def _cbv(router: APIRouter, cls: Type[T]) -> Type[T]:
     cbv_router = APIRouter()
     functions = inspect.getmembers(cls, inspect.isfunction)
     routes_by_endpoint = {
-        route.endpoint: route for route in router.routes if isinstance(route, (Route, WebSocketRoute))
+        route.endpoint: route
+        for route in router.routes
+        if isinstance(route, (Route, WebSocketRoute))
     }
     for _, func in functions:
         route = routes_by_endpoint.get(func)
@@ -35,14 +37,17 @@ def _cbv(router: APIRouter, cls: Type[T]) -> Type[T]:
     return cls
 
 
-def _update_cbv_route_endpoint_signature(cls: Type[Any], route: Union[Route, WebSocketRoute]) -> None:
+def _update_cbv_route_endpoint_signature(
+    cls: Type[Any], route: Union[Route, WebSocketRoute]
+) -> None:
     old_endpoint = route.endpoint
     old_signature = inspect.signature(old_endpoint)
     old_parameters: List[inspect.Parameter] = list(old_signature.parameters.values())
     old_first_parameter = old_parameters[0]
     new_first_parameter = old_first_parameter.replace(default=Depends(cls))
     new_parameters = [new_first_parameter] + [
-        parameter.replace(kind=inspect.Parameter.KEYWORD_ONLY) for parameter in old_parameters[1:]
+        parameter.replace(kind=inspect.Parameter.KEYWORD_ONLY)
+        for parameter in old_parameters[1:]
     ]
     new_signature = old_signature.replace(parameters=new_parameters)
     setattr(route.endpoint, "__signature__", new_signature)
@@ -55,7 +60,10 @@ def _init_cbv(cls: Type[Any]) -> None:
     old_signature = inspect.signature(old_init)
     old_parameters = list(old_signature.parameters.values())[1:]  # drop `self` parameter
     new_parameters = [
-        x for x in old_parameters if x.kind not in (inspect.Parameter.VAR_POSITIONAL, inspect.Parameter.VAR_KEYWORD)
+        x
+        for x in old_parameters
+        if x.kind
+        not in (inspect.Parameter.VAR_POSITIONAL, inspect.Parameter.VAR_KEYWORD)
     ]
     dependency_names: List[str] = []
     for name, hint in get_type_hints(cls).items():
@@ -65,7 +73,12 @@ def _init_cbv(cls: Type[Any]) -> None:
         parameter_kwargs["default"] = getattr(cls, name, Ellipsis)
         dependency_names.append(name)
         new_parameters.append(
-            inspect.Parameter(name=name, kind=inspect.Parameter.KEYWORD_ONLY, annotation=hint, **parameter_kwargs)
+            inspect.Parameter(
+                name=name,
+                kind=inspect.Parameter.KEYWORD_ONLY,
+                annotation=hint,
+                **parameter_kwargs
+            )
         )
     new_signature = old_signature.replace(parameters=new_parameters)
 

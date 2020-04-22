@@ -2,7 +2,8 @@ from src.core import server
 
 
 def migrate_database():
-	pass
+    pass
+
 
 def run_server():
-	server.run()
+    server.run()

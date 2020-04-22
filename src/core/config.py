@@ -2,14 +2,14 @@ import os
 
 import inject
 
-DATABASE_URI = os.getenv('DATABASE_URI')
+DATABASE_URI = os.getenv("DATABASE_URI")
 
 SERVER_ADRESS = None
 SERVER_PORT = None
 SERVER_LOG_LEVEL = None
 SERVER_WORKER_NUMBERS = None
 
-# override the dictConfig logging in uvicorn. 
+# override the dictConfig logging in uvicorn.
 # This config add tow FileHandler and update the existing formatter.
 LOGGING_CONFIG = {
     "version": 1,
@@ -36,34 +36,38 @@ LOGGING_CONFIG = {
             "class": "logging.StreamHandler",
             "stream": "ext://sys.stdout",
         },
-		"default_file": {
+        "default_file": {
             "formatter": "default",
             "class": "logging.FileHandler",
             "filename": "launcher.log",
-			"mode": "w",
+            "mode": "w",
             "encoding": "utf-8",
         },
-		"access_file": {
+        "access_file": {
             "formatter": "default",
             "class": "logging.FileHandler",
             "filename": "access.log",
-			"mode": "w",
+            "mode": "w",
             "encoding": "utf-8",
         },
     },
     "loggers": {
         "": {"handlers": ["default", "default_file"], "level": "INFO"},
         "uvicorn.error": {"level": "INFO"},
-        "uvicorn.access": {"handlers": ["access", "access_file"], "level": "INFO", "propagate": False},
+        "uvicorn.access": {
+            "handlers": ["access", "access_file"],
+            "level": "INFO",
+            "propagate": False,
+        },
     },
 }
 
 
 def configure_inject():
-	from src.domain.userManagment.service.userService import UserService
-	from src.infrastructure.database.models.user import UserQueries
+    from src.domain.userManagment.service.userService import UserService
+    from src.infrastructure.database.models.user import UserQueries
 
-	def config(binder: inject.Binder):
-		binder.bind(UserService, UserService(UserQueries()))
+    def config(binder: inject.Binder):
+        binder.bind(UserService, UserService(UserQueries()))
 
-	inject.configure(config)
+    inject.configure(config)
