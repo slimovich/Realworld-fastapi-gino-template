@@ -1,10 +1,12 @@
+*Under developement, WIP. Be patient.*
+
 Quickstart
 ----------
-First
+TODO
 
 Deployment with Docker
 ----------------------
-
+TODO
 
 
 Project structure
