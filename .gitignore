@@ -24,3 +24,5 @@ reports/
 
 # sonar scanner report
 .scannerwork/
+
+.coverage

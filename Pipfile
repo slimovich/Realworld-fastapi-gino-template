@@ -9,7 +9,6 @@ pytest = "*"
 pytest-asyncio = "*"
 pytest-cov = "*"
 requests = "*"
-
 # lint
 autoflake = "*"
 flake8-fixme = "*"
@@ -17,6 +16,7 @@ mypy = "*"
 black = "==19.10b0"
 isort = "*"
 wemake-python-styleguide = "*"
+lxml = "*"
 
 [packages]
 gino = "*"
