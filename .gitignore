@@ -21,3 +21,6 @@ __pycache__/
 
 # reports for code quality
 reports/
+
+# sonar scanner report
+.scannerwork/
