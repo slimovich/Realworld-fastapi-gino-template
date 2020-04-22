@@ -1,10 +1,9 @@
-import inject
 import pytest
 
-from src.domain.userManagment.service.userService import UserService
 from src.domain.userManagment.schema.user import UserSchema
+from src.domain.userManagment.service.userService import UserService
 from src.infrastructure.database.models.user import UserModel
-from src.infrastructure.database.models.user import UserQueries
+
 
 class UserQueriesDummy:
 

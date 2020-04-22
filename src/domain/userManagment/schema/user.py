@@ -1,6 +1,6 @@
 from typing import Optional
-from pydantic import BaseModel, Field, EmailStr
-from datetime import datetime
+
+from pydantic import BaseModel, EmailStr
 
 
 # Shared properties

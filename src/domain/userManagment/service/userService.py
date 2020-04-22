@@ -1,8 +1,13 @@
-import inject
 
 from typing import List, Optional
-from src.domain.userManagment.schema.user import UserCreateSchema, UserDBSchema, UserUpdateSchema
+
 from src.domain.userManagment.interface.queries import IUserQueries
+from src.domain.userManagment.schema.user import (
+    UserCreateSchema,
+    UserDBSchema,
+    UserUpdateSchema,
+)
+
 
 class UserService:
 

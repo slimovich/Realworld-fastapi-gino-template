@@ -1,12 +1,11 @@
-import uvicorn
 import logging
+
+import uvicorn
 from fastapi import FastAPI
 
 from src.api.api import api_router
+from src.core.config import LOGGING_CONFIG, configure_inject
 from src.core.db import db
-from src.core.config import configure_inject, LOGGING_CONFIG
-from src.infrastructure.database.models.user import UserModel
-
 
 LOGGER = logging.getLogger(__name__)
 

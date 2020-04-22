@@ -1,5 +1,6 @@
 from src.core import server
 
+
 def migrate_database():
 	pass
 

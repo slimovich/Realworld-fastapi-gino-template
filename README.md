@@ -13,8 +13,6 @@ Project structure
 Files related to application are in the ``src`` or ``tests`` directories.
 Application parts are:
 
-::
-
     src
     ├── api                     - web related stuff.
     ├── core                    - application configuration, server management, logging.

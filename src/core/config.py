@@ -1,6 +1,6 @@
 import os
-import inject
 
+import inject
 
 DATABASE_URI = os.getenv('DATABASE_URI')
 

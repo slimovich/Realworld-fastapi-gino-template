@@ -1,4 +1,5 @@
 import logging
+
 from gino.ext.starlette import Gino
 
 from src.core.config import DATABASE_URI

@@ -1,11 +1,14 @@
-import inject
-
 from typing import List, Optional
 
-from fastapi import APIRouter, Form, HTTPException
-from src.domain.userManagment.schema.user import UserDBSchema, UserCreateSchema, UserUpdateSchema
-from src.domain.userManagment.service.userService import UserService
+import inject
+from fastapi import APIRouter, HTTPException
 
+from src.domain.userManagment.schema.user import (
+    UserCreateSchema,
+    UserDBSchema,
+    UserUpdateSchema,
+)
+from src.domain.userManagment.service.userService import UserService
 
 router = APIRouter()
 

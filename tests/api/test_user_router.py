@@ -2,13 +2,13 @@ import inject
 import pytest
 from fastapi import FastAPI
 from starlette.testclient import TestClient
-from unittest.mock import Mock
 
-from src.core.server import app
 from src.api.api import api_router
-from src.domain.userManagment.service.userService import UserService
+from src.core.server import app
 from src.domain.userManagment.schema.user import UserSchema
+from src.domain.userManagment.service.userService import UserService
 from src.infrastructure.database.models.user import UserModel
+
 
 def create_test_app():
 	app = FastAPI()
