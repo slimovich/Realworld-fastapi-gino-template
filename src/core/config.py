@@ -39,14 +39,14 @@ LOGGING_CONFIG = {
         "default_file": {
             "formatter": "default",
             "class": "logging.FileHandler",
-            "filename": "launcher.log",
+            "filename": "log/launcher.log",
             "mode": "w",
             "encoding": "utf-8",
         },
         "access_file": {
             "formatter": "default",
             "class": "logging.FileHandler",
-            "filename": "access.log",
+            "filename": "log/access.log",
             "mode": "w",
             "encoding": "utf-8",
         },

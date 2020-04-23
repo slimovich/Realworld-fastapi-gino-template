@@ -16,8 +16,8 @@ __pycache__/
 # vscode project files
 .vscode/
 
-# log file
-*.log
+# logs file
+log/
 
 # reports for code quality
 reports/
