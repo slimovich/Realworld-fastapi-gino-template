@@ -1,6 +1,6 @@
 FROM python:3.8.2-alpine
 
-RUN apk update && apk add --no-cache gcc musl-dev libffi-dev openssl-dev make postgresql-dev
+RUN apk update && apk add --no-cache gcc musl-dev libffi-dev openssl-dev make libxslt-dev libxml2-dev
 
 RUN pip install pipenv
 
@@ -16,7 +16,7 @@ RUN cd /app && pipenv install --dev --system --deploy --ignore-pipfile
 COPY src/ /app/src/
 COPY tests/ /app/tests/
 
-COPY setup/scripts/ app/scripts
+COPY setup/scripts/ app/
 
 WORKDIR /app/src/
 
