@@ -4,9 +4,9 @@ services:
   app:
     build:
       context: ../../
-      dockerfile: Dockerfile
-    container_name: slim-fastapi-app
-    image: slim-fastapi-app
+      dockerfile: develop.dockerfile
+    container_name: fastapi-app-develop-container
+    image: fastapi-app-develop-image
     command: /app/start.sh
     ports:
       - 8080:8080
@@ -16,19 +16,19 @@ services:
 
   data_base:
     image: postgres:12.1-alpine
-    container_name: slim-data-base-app
+    container_name: data-base-app-container
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=hello_fastapi
-      - POSTGRES_PASSWORD=hello_fastapi
-      - POSTGRES_DB=slim_fast_api
+      - POSTGRES_USER=fastapi_user
+      - POSTGRES_PASSWORD=fastapi_pass
+      - POSTGRES_DB=fast_api
     ports: 
       - 5432:5432
 
   pg_admin:
     image: dpage/pgadmin4
-    container_name: slim-pgadmin-container
+    container_name: pgadmin-container
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
