@@ -5,8 +5,15 @@ from src.domain.userManagment.service.userService import UserService
 from src.infrastructure.database.models.user import UserModel
 
 USER_MODEL = UserModel(
-                    user_id=1, email="test@test.com", full_name="test", password="test", is_active=True, is_superuser=False, created_date="1/1/2020"
-                )
+    user_id=1,
+    email="test@test.com",
+    full_name="test",
+    password="test",
+    is_active=True,
+    is_superuser=False,
+    created_date="1/1/2020",
+)
+
 
 class UserQueriesDummy:
     async def create_user(self, user):
@@ -21,7 +28,13 @@ def user_model() -> UserModel:
 @pytest.fixture
 def user_schema() -> UserCreateSchema:
     return UserCreateSchema(
-        user_id=1, email="test@test.com", full_name="test", password="test", is_active=True, is_superuser=False, created_date="1/1/2020"
+        user_id=1,
+        email="test@test.com",
+        full_name="test",
+        password="test",
+        is_active=True,
+        is_superuser=False,
+        created_date="1/1/2020",
     )
 
 
@@ -33,4 +46,4 @@ class TestUserService:
         user_service = UserService(UserQueriesDummy())
 
         result = await user_service.create_user(user_schema)
-        assert result == UserDBSchema(user_id=1, email="test@test.com", full_name="test", is_active=True, is_superuser=False, created_date="1/1/2020")
+        assert result == user_schema

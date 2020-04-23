@@ -5,7 +5,7 @@ from starlette.testclient import TestClient
 
 from src.api.api import api_router
 from src.core.server import app
-from src.domain.userManagment.schema.user import UserCreateSchema, UserDBSchema
+from src.domain.userManagment.schema.user import UserDBSchema
 from src.domain.userManagment.service.userService import UserService
 from src.infrastructure.database.models.user import UserModel
 
@@ -21,8 +21,14 @@ app = create_test_app()
 client = TestClient(app)
 
 USER_MODEL = UserModel(
-                    user_id=1, email="test@test.com", full_name="test", password="test", is_active=True, is_superuser=False, created_date="1/1/2020"
-                )
+    user_id=1,
+    email="test@test.com",
+    full_name="test",
+    password="test",
+    is_active=True,
+    is_superuser=False,
+    created_date="1/1/2020",
+)
 
 
 class UserServiceDummy:
@@ -45,7 +51,12 @@ def user_model() -> UserModel:
 @pytest.fixture
 def user_schema() -> UserDBSchema:
     return UserDBSchema(
-        user_id=1, email="test@test.com", full_name="test", is_active=True, is_superuser=False, created_date="1/1/2020"
+        user_id=1,
+        email="test@test.com",
+        full_name="test",
+        is_active=True,
+        is_superuser=False,
+        created_date="1/1/2020",
     )
 
 
@@ -62,7 +73,7 @@ class TestUserRouter:
                 "password": "test",
                 "is_active": True,
                 "is_superuser": False,
-                "created_date": "1/1/2020"
+                "created_date": "1/1/2020",
             },
         )
         assert response.status_code == 200

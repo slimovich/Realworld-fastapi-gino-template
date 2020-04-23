@@ -58,7 +58,9 @@ def _init_cbv(cls: Type[Any]) -> None:
         return  # Already initialized
     old_init: Callable[..., Any] = cls.__init__
     old_signature = inspect.signature(old_init)
-    old_parameters = list(old_signature.parameters.values())[1:]  # drop `self` parameter
+    old_parameters = list(old_signature.parameters.values())[
+        1:
+    ]  # drop `self` parameter
     new_parameters = [
         x
         for x in old_parameters
