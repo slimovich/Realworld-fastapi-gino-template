@@ -46,4 +46,11 @@ class TestUserService:
         user_service = UserService(UserQueriesDummy())
 
         result = await user_service.create_user(user_schema)
-        assert result == user_schema
+        assert result == UserDBSchema(
+            user_id=1,
+            email="test@test.com",
+            full_name="test",
+            is_active=True,
+            is_superuser=False,
+            created_date="1/1/2020",
+        )
