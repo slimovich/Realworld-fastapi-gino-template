@@ -32,8 +32,7 @@ async def get_user_by_id(user_id: int) -> Optional[UserDBSchema]:
     user = await user_service.get_user_by_id(user_id)
     if user:
         return user
-    else:
-        raise HTTPException(status_code=404, detail=f"User with id:{user_id} not found")
+    raise HTTPException(status_code=404, detail=f"User with id:{user_id} not found")
 
 
 @router.put("/{user_id}", response_model=UserDBSchema)

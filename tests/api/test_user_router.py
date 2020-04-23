@@ -4,7 +4,6 @@ from fastapi import FastAPI
 from starlette.testclient import TestClient
 
 from src.api.api import api_router
-from src.core.server import app
 from src.domain.userManagment.schema.user import UserDBSchema
 from src.domain.userManagment.service.userService import UserService
 from src.infrastructure.database.models.user import UserModel
@@ -78,27 +77,3 @@ class TestUserRouter:
         )
         assert response.status_code == 200
         assert response.json() == user_schema.__dict__
-
-    # def test_user_create_first_name_non_valide(
-    #     self, injector: None, user_model: UserModel, user_schema: UserCreateSchema
-    # ) -> None:
-    #     detail = [
-    #         {
-    #             "loc": ["body", "user", "first_name"],
-    #             "msg": "ensure this value has at least 3 characters",
-    #             "type": "value_error.any_str.min_length",
-    #             "ctx": {"limit_value": 3},
-    #         }
-    #     ]
-
-    #     response = client.post(
-    #         "/users/",
-    #         json={
-    #             "pseudo": "sss",
-    #             "first_name": "zz",
-    #             "last_name": "vvvv",
-    #             "birth_date": "zaeaze",
-    #         },
-    #     )
-    #     assert response.status_code == 422
-    #     assert response.json()["detail"] == detail

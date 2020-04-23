@@ -13,22 +13,22 @@ if TYPE_CHECKING:
 class IUserQueries:
     @abstractmethod
     async def create_user(self, user: UserCreateSchema) -> UserModel:
-        raise NotImplemented
+        raise NotImplementedError
 
     @abstractmethod
     async def update_user(
         self, old_user: UserModel, new_user: UserUpdateSchema
     ) -> UserModel:
-        raise NotImplemented
+        raise NotImplementedError
 
     @abstractmethod
     async def delete_user(self, user_id: int) -> UserModel:
-        raise NotImplemented
+        raise NotImplementedError
 
     @abstractmethod
     async def get_user_byid(self, user_id: int) -> UserModel:
-        raise NotImplemented
+        raise NotImplementedError
 
     @abstractmethod
     async def get_all_users(self) -> List[UserModel]:
-        raise NotImplemented
+        raise NotImplementedError
