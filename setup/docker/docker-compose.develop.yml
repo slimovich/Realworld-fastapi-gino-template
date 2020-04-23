@@ -10,7 +10,7 @@ services:
     command: /app/start.sh
     ports:
       - 8080:8080
-    env_file: ../../dev.env
+    env_file: ../../develop.env
     depends_on:
       - data_base
 
