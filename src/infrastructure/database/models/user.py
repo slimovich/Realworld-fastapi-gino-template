@@ -5,7 +5,7 @@ from src.domain.userManagment.interface.queries import IUserQueries
 from src.domain.userManagment.schema.user import UserCreateSchema, UserUpdateSchema
 
 
-class UserModel(db.Model):
+class UserModel(db.Model):  # type: ignore
     __tablename__ = "user base"
 
     user_id = db.Column("id", db.Integer, autoincrement=True, primary_key=True)

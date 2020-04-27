@@ -1,6 +1,5 @@
-from typing import List, Optional
+from typing import List, Optional, Any
 
-from src.domain.userManagment.interface.queries import IUserQueries
 from src.domain.userManagment.schema.user import (
     UserCreateSchema,
     UserDBSchema,
@@ -9,7 +8,7 @@ from src.domain.userManagment.schema.user import (
 
 
 class UserService:
-    def __init__(self, user_queries: IUserQueries):
+    def __init__(self, user_queries: Any):
         self.__user_queries = user_queries
 
     async def create_user(self, user: UserCreateSchema) -> UserDBSchema:

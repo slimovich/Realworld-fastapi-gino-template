@@ -10,7 +10,7 @@ from src.core.db import db
 LOGGER = logging.getLogger(__name__)
 
 
-def create_app():
+def create_app() -> FastAPI:
     try:
         LOGGER.info("Initiliase fast-API app")
         app = FastAPI()
@@ -22,7 +22,7 @@ def create_app():
     return app
 
 
-app = create_app()
+app: FastAPI = create_app()
 
 
 @app.on_event("startup")
@@ -35,7 +35,7 @@ async def _startup() -> None:
         LOGGER.error(f"Error in startup for tables creation => {e}")
 
 
-def run():
+def run() -> None:
     uvicorn.run(
         app,
         host="0.0.0.0",

@@ -1,3 +1,5 @@
+from typing import Any
+
 import pytest
 
 from src.domain.userManagment.schema.user import UserCreateSchema, UserDBSchema
@@ -16,7 +18,7 @@ USER_MODEL = UserModel(
 
 
 class UserQueriesDummy:
-    async def create_user(self, user):
+    async def create_user(self, user: Any) -> UserModel:
         return USER_MODEL
 
 

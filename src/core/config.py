@@ -63,11 +63,11 @@ LOGGING_CONFIG = {
 }
 
 
-def configure_inject():
+def configure_inject() -> None:
     from src.domain.userManagment.service.userService import UserService
     from src.infrastructure.database.models.user import UserQueries
 
-    def config(binder: inject.Binder):
+    def config(binder: inject.Binder) -> None:
         binder.bind(UserService, UserService(UserQueries()))
 
     inject.configure(config)

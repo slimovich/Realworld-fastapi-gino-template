@@ -24,7 +24,7 @@ class UserUpdateSchema(UserBase):
 
 # properties to push via API
 class UserDBSchema(UserBase):
-    user_id: int = None
+    user_id: int
 
     class Config:
         orm_mode = True

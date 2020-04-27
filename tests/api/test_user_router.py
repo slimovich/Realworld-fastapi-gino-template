@@ -1,6 +1,9 @@
+from typing import Any
+
 import inject
 import pytest
 from fastapi import FastAPI
+from starlette import status
 from starlette.testclient import TestClient
 
 from src.api.api import api_router
@@ -9,7 +12,7 @@ from src.domain.userManagment.service.userService import UserService
 from src.infrastructure.database.models.user import UserModel
 
 
-def create_test_app():
+def create_test_app() -> FastAPI:
     app = FastAPI()
     app.include_router(api_router)
 
@@ -31,14 +34,14 @@ USER_MODEL = UserModel(
 
 
 class UserServiceDummy:
-    async def create_user(self, user):
+    async def create_user(self, user: Any) -> UserModel:
         return USER_MODEL
 
 
 @pytest.fixture
 def injector() -> None:
     inject.clear_and_configure(
-        lambda binder: binder.bind(UserService, UserServiceDummy())
+        lambda binder: binder.bind(UserService, UserServiceDummy())  # type: ignore
     )
 
 
@@ -75,5 +78,5 @@ class TestUserRouter:
                 "created_date": "1/1/2020",
             },
         )
-        assert response.status_code == 200
+        assert response.status_code == status.HTTP_202_ACCEPTED
         assert response.json() == user_schema.__dict__
