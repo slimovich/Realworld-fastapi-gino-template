@@ -3,7 +3,7 @@ version: "3"
 services:
     sonarqube:
         image: sonarqube
-        container_name: slim-sonarqube
+        container_name: fast-API-sonarqube
         expose:
           - 9000
         ports:
