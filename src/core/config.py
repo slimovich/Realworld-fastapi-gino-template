@@ -9,8 +9,7 @@ SERVER_PORT = None
 SERVER_LOG_LEVEL = None
 SERVER_WORKER_NUMBERS = None
 
-# override the dictConfig logging in uvicorn.
-# This config add tow FileHandler and update the existing formatter.
+# override the dictConfig logging in uvicorn and update the existing formatter.
 LOGGING_CONFIG = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -36,26 +35,12 @@ LOGGING_CONFIG = {
             "class": "logging.StreamHandler",
             "stream": "ext://sys.stdout",
         },
-        "default_file": {
-            "formatter": "default",
-            "class": "logging.FileHandler",
-            "filename": "log/launcher.log",
-            "mode": "w",
-            "encoding": "utf-8",
-        },
-        "access_file": {
-            "formatter": "default",
-            "class": "logging.FileHandler",
-            "filename": "log/access.log",
-            "mode": "w",
-            "encoding": "utf-8",
-        },
     },
     "loggers": {
-        "": {"handlers": ["default", "default_file"], "level": "INFO"},
+        "": {"handlers": ["default"], "level": "INFO"},
         "uvicorn.error": {"level": "INFO"},
         "uvicorn.access": {
-            "handlers": ["access", "access_file"],
+            "handlers": ["access"],
             "level": "INFO",
             "propagate": False,
         },
