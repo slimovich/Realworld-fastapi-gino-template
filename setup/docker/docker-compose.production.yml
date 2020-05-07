@@ -20,9 +20,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=fastapi_user
-      - POSTGRES_PASSWORD=fastapi_pass
-      - POSTGRES_DB=fast_api
+      POSTGRES_USER: ${POSTGRES_USER:-fastapi_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fastapi_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-fast_api}
     ports: 
       - 5432:5432
 

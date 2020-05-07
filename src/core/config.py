@@ -2,14 +2,29 @@ import os
 
 import inject
 
-DATABASE_URI = os.getenv("DATABASE_URI")
+##########################################################################
+# DataBase settings
+##########################################################################
+POSTGRES_USER = os.getenv("POSTGRES_USER")
+POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
+POSTGRES_DB = os.getenv("POSTGRES_DB")
+POSTGRES_ADRESS = os.getenv("POSTGRES_ADRESS")
+DATABASE_URI = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_ADRESS}/{POSTGRES_DB}"
 
-SERVER_ADRESS = None
-SERVER_PORT = None
-SERVER_LOG_LEVEL = None
-SERVER_WORKER_NUMBERS = None
+##########################################################################
+# Server settings
+##########################################################################
 
-# override the dictConfig logging in uvicorn and update the existing formatter.
+SERVER_ADRESS = "127.0.0.1"
+SERVER_PORT = "8080"
+SERVER_LOG_LEVEL = "info"
+SERVER_WORKER_NUMBERS = 1
+
+##########################################################################
+# Log settings
+##########################################################################
+
+# replicate the dictConfig logging in uvicorn and update the existing formatter.
 LOGGING_CONFIG = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -47,6 +62,9 @@ LOGGING_CONFIG = {
     },
 }
 
+##########################################################################
+# Dependicies injection settings
+##########################################################################
 
 def configure_inject() -> None:
     from src.domain.userManagment.service.userService import UserService

@@ -7,7 +7,7 @@ services:
       dockerfile: develop.dockerfile
     container_name: fastapi-app-develop-container
     image: fastapi-app-develop-image
-    command: /app/start.sh
+    command: cd /app/ && make run
     ports:
       - 8080:8080
     env_file: ../../develop.env
@@ -20,9 +20,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=fastapi_user
-      - POSTGRES_PASSWORD=fastapi_pass
-      - POSTGRES_DB=fast_api
+      POSTGRES_USER: ${POSTGRES_USER:-fastapi_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fastapi_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-fast_api}
     ports: 
       - 5432:5432
 
