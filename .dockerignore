@@ -1,10 +1,26 @@
 # IDE Fragments
 /.vscode
-*__pycache__*
 *.idea*
 
-# Docker Files
-docker-compose.yml
+# Pytest cache files
+.pytest_cache/
+
+# Pytest cache files
+.mypy_cache/
+
+# Desktop Services Store on macOS
+.DS_Store
+
+# Python cache directories
+__pycache__/
+
+# reports for code quality
+reports/
+
+# sonar scanner report
+.scannerwork/
+
+.coverage
 
 # Ignore Files
 .gitignore
