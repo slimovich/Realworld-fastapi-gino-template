@@ -9,7 +9,7 @@ Overview
 - PostgreSQL as a databse
 - PGAdmin4 client for postgreSQL
 - Makefile for building project
-- SonarCube for analysing code and interpreting pytest and cov report
+- SonarQube for analysing code and interpreting pytest and cov report
 - Docker for packaging and deployment
 - Flake8 and Mypy for analysing code
 - Isort, Black, Autoflake for formating code
@@ -36,6 +36,14 @@ PIPENV_DOTENV_LOCATION=local.env pipenv run make run
 ```
 
 Deployment with Docker
+----------------------
+TODO
+
+Sonar Qube
+----------------------
+TODO
+
+Jenkins
 ----------------------
 TODO
 

@@ -12,8 +12,7 @@ RUN cd /app && pipenv install --system --deploy --ignore-pipfile
 
 # copy all file to their specific directory
 COPY src/ /app/src/
-
-COPY setup/scripts/start.sh app/
+COPY Makefile /app/
 
 WORKDIR /app/src/
 

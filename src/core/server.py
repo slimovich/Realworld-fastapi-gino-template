@@ -4,7 +4,7 @@ import uvicorn
 from fastapi import FastAPI
 
 from src.api.api import api_router
-from src.core.config import LOGGING_CONFIG, configure_inject
+from src.core.config import LOGGING_CONFIG, SERVER_ADRESS, SERVER_LOG_LEVEL, SERVER_PORT, configure_inject
 from src.core.db import db
 
 LOGGER = logging.getLogger(__name__)
@@ -36,11 +36,12 @@ async def _startup() -> None:
 
 
 def run() -> None:
+
+    #os.system("uvicorn src.core.server:app --reload --lifespan on --workers 1 --host 0.0.0.0 --port 8080 --log-level debug")
     uvicorn.run(
         app,
-        host="0.0.0.0",
-        port=8000,
-        log_level="debug",
-        access_log=True,
+        host=SERVER_ADRESS,
+        port=eval(SERVER_PORT),
+        log_level=SERVER_LOG_LEVEL,
         log_config=LOGGING_CONFIG,
     )

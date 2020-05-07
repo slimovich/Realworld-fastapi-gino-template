@@ -13,10 +13,7 @@ COPY Pipfile.lock app/Pipfile.lock
 RUN cd /app && pipenv install --dev --system --deploy --ignore-pipfile
 
 # copy all file to their specific directory
-COPY src/ /app/src/
-COPY tests/ /app/tests/
-
-COPY setup/scripts/ app/
+COPY . /app/
 
 WORKDIR /app/src/
 
