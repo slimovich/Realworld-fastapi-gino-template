@@ -78,5 +78,5 @@ class TestUserRouter:
                 "created_date": "1/1/2020",
             },
         )
-        assert response.status_code == status.HTTP_202_ACCEPTED
+        assert response.status_code == status.HTTP_200_OK
         assert response.json() == user_schema.__dict__
