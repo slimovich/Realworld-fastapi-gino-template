@@ -1,10 +1,6 @@
 from typing import Any, List, Optional
 
-from src.domain.userManagment.schema.user import (
-    UserCreateSchema,
-    UserDBSchema,
-    UserUpdateSchema,
-)
+from src.domain.userManagment.schema.user import UserCreateSchema, UserDBSchema, UserUpdateSchema
 
 
 class UserService:
@@ -27,9 +23,7 @@ class UserService:
         else:
             return None
 
-    async def update_user(
-        self, user_id: int, new_user: UserUpdateSchema
-    ) -> UserDBSchema:
+    async def update_user(self, user_id: int, new_user: UserUpdateSchema) -> UserDBSchema:
         old_user = await self.__user_queries.get_user_byid(user_id)
         user_updated = await self.__user_queries.update_user(old_user, new_user)
         return UserDBSchema.from_orm(user_updated)

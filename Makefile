@@ -46,7 +46,7 @@ lint:
 
 format:
 	autoflake --remove-all-unused-imports --remove-unused-variables  --recursive --in-place src/ tests/
-	black src tests
+	black --line-length 100 src tests
 	isort --recursive --apply src tests
 
 run-dev:

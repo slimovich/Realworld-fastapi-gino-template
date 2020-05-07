@@ -54,17 +54,14 @@ LOGGING_CONFIG = {
     "loggers": {
         "": {"handlers": ["default"], "level": "INFO"},
         "uvicorn.error": {"level": "INFO"},
-        "uvicorn.access": {
-            "handlers": ["access"],
-            "level": "INFO",
-            "propagate": False,
-        },
+        "uvicorn.access": {"handlers": ["access"], "level": "INFO", "propagate": False,},
     },
 }
 
 ##########################################################################
 # Dependicies injection settings
 ##########################################################################
+
 
 def configure_inject() -> None:
     from src.domain.userManagment.service.userService import UserService

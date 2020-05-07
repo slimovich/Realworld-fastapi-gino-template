@@ -4,11 +4,7 @@ import inject
 from fastapi import APIRouter, HTTPException
 from starlette import status
 
-from src.domain.userManagment.schema.user import (
-    UserCreateSchema,
-    UserDBSchema,
-    UserUpdateSchema,
-)
+from src.domain.userManagment.schema.user import UserCreateSchema, UserDBSchema, UserUpdateSchema
 from src.domain.userManagment.service.userService import UserService
 
 router = APIRouter()
@@ -34,8 +30,7 @@ async def get_user_by_id(user_id: int) -> Optional[UserDBSchema]:
     if user:
         return user
     raise HTTPException(
-        status_code=status.HTTP_404_NOT_FOUND,
-        detail=f"User with id:{user_id} not found",
+        status_code=status.HTTP_404_NOT_FOUND, detail=f"User with id:{user_id} not found",
     )
 
 
