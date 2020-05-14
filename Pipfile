@@ -10,23 +10,21 @@ pytest-asyncio = "==0.12.0"
 pytest-cov = "==2.8.1"
 requests = "==2.23.0"
 lxml = "==4.5.0"
-
 # format
 autoflake = "==1.3.1"
 black = "==19.10b0"
 isort = "==4.3.21"
-
 # lint
 flake8 = "==3.8.1"
 mypy = "==0.770"
-
 # security check
 bandit = "==1.6.2"
 
 [packages]
 gino = "==1.0.0"
-fastapi = "==0.46.0"
-uvicorn = "==0.11.1"
+gino-starlette = "==0.1.1"
+fastapi = "==0.54.1"
+uvicorn = "==0.11.5"
 gunicorn = "==20.0.4"
 alembic = "==1.4.1"
 inject = "==4.1.2"
