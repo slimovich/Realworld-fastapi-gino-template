@@ -24,10 +24,6 @@ SERVER_WORKER_NUMBERS = 1
 # Log settings
 ##########################################################################
 
-import logging
-LOGGERS = ("uvicorn.asgi", "uvicorn.access")
-for logger_name in LOGGERS:
-    logging_logger = logging.getLogger(logger_name)
 # replicate the dictConfig logging in uvicorn and update the existing formatter.
 LOGGING_CONFIG = {
     "version": 1,
