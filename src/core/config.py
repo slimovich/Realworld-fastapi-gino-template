@@ -5,11 +5,11 @@ import inject
 ##########################################################################
 # DataBase settings
 ##########################################################################
-POSTGRES_USER = os.getenv("POSTGRES_USER")
-POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
-POSTGRES_DB = os.getenv("POSTGRES_DB")
-POSTGRES_ADRESS = os.getenv("POSTGRES_ADRESS")
-DATABASE_URI = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_ADRESS}/{POSTGRES_DB}"
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_NAME = os.getenv("DB_NAME")
+DB_ADRESS = os.getenv("DB_ADRESS")
+DATABASE_URI = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_ADRESS}/{DB_NAME}"
 
 ##########################################################################
 # Server settings
@@ -24,6 +24,10 @@ SERVER_WORKER_NUMBERS = 1
 # Log settings
 ##########################################################################
 
+import logging
+LOGGERS = ("uvicorn.asgi", "uvicorn.access")
+for logger_name in LOGGERS:
+    logging_logger = logging.getLogger(logger_name)
 # replicate the dictConfig logging in uvicorn and update the existing formatter.
 LOGGING_CONFIG = {
     "version": 1,
