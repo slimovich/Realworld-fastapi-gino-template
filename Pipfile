@@ -5,29 +5,32 @@ verify_ssl = true
 
 [dev-packages]
 # test
-pytest = "*"
-pytest-asyncio = "*"
-pytest-cov = "*"
-requests = "*"
-lxml = "*"
+pytest = "==5.4.2"
+pytest-asyncio = "==0.12.0"
+pytest-cov = "==2.8.1"
+requests = "==2.23.0"
+lxml = "==4.5.0"
 
 # format
-autoflake = "*"
+autoflake = "==1.3.1"
 black = "==19.10b0"
-isort = "*"
+isort = "==4.3.21"
 
 # lint
-flake8 = "*"
-mypy = "*"
+flake8 = "==3.8.1"
+mypy = "==0.770"
+
+# security check
+bandit = "==1.6.2"
 
 [packages]
-gino = "*"
+gino = "==1.0.0"
 fastapi = "==0.46.0"
 uvicorn = "==0.11.1"
 gunicorn = "==20.0.4"
 alembic = "==1.4.1"
-inject = "*"
-pydantic = {extras = ["email"],version = "*"}
+inject = "==4.1.2"
+pydantic = {extras = ["email"],version = "==1.5.1"}
 
 [requires]
 python_version = "3.8"

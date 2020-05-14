@@ -1,5 +1,5 @@
   
-.PHONY: install-dev-deps build-dev build-prod run-dev-containers run-prod-containers help test lint format run run-local
+.PHONY: install-dev-deps build-dev build-prod run-dev-containers run-prod-containers help test lint format run run-local check-vul
 
 
 SUPPORTED_COMMANDS := test lint format run
@@ -18,6 +18,7 @@ help:
 	@echo "  test                        run the testsuite"
 	@echo "  lint                        check the source for style errors"
 	@echo "  format                      format the python code"
+	@echo "  check-vul                   check vulnerabilities"
 	@echo "  run-local                   run the server in localhost with debug and autoreload mode"
 	@echo "  run                         run the server in the container"
 
@@ -45,12 +46,19 @@ lint:
 	mypy src/ tests/
 
 format:
+	@echo "Format the python code"
 	autoflake --remove-all-unused-imports --remove-unused-variables  --recursive --in-place src/ tests/
 	black --line-length 100 src tests
 	isort --recursive --apply src tests
 
+check-vul:
+	@echo "Check vulnerabilities
+	bandit -r src/
+
 run-dev:
+	@echo "Running dev server"
 	uvicorn src.core.server:app --reload --lifespan on --workers 1 --host 0.0.0.0 --port 8080 --log-level debug
 
 run:
+	@echo "Running server"
 	uvicorn src.core.server:app --lifespan on --workers 1 --host 0.0.0.0 --port 8080

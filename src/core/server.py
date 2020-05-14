@@ -47,7 +47,7 @@ def run() -> None:
     uvicorn.run(
         app,
         host=SERVER_ADRESS,
-        port=eval(SERVER_PORT),
+        port=SERVER_PORT,
         log_level=SERVER_LOG_LEVEL,
         log_config=LOGGING_CONFIG,
     )

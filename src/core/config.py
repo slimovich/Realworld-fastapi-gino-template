@@ -16,7 +16,7 @@ DATABASE_URI = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_ADRE
 ##########################################################################
 
 SERVER_ADRESS = "127.0.0.1"
-SERVER_PORT = "8080"
+SERVER_PORT = 8080
 SERVER_LOG_LEVEL = "debug"
 SERVER_WORKER_NUMBERS = 1
 

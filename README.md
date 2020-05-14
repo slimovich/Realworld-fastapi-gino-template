@@ -2,18 +2,23 @@
 
 Overview
 ----------
-- Fast-API application with gino, async ORM
-- Using hexagonal architecture
-- Pipenv for package manager (Also creating virtual environement)
-- Dependencies injection using ``inject`` library
-- PostgreSQL as a databse
-- PGAdmin4 client for postgreSQL
-- Makefile for building project
-- SonarQube for analysing code and interpreting pytest and cov report
-- Docker for packaging and deployment
-- Flake8 and Mypy for analysing code
-- Isort, Black, Autoflake for formating code
-- Jenkins for CI/CD
+This repository contains a skeleton app which can be used to speed-up your next project.
+
+- **Fast-API:** Application with gino, async ORM
+- **hexagonal architecture:** Bettre code organisation
+- **Pipenv:** Package manager (Also creating virtual environement)
+- **inject:** For Dependencies injection
+- **JWT:** Token authentication.
+- **Gino:** Async ORM used with AsyncPG and postgreSQL
+- **Alembic:** Database migrations
+- **PGAdmin4:** Client for postgreSQL
+- **Makefile:** Building project
+- **SonarQube:** Analysing code and interpreting pytest and cov report
+- **Flake8, Mypy:** Lint code
+- **Isort, Black, Autoflake:** Formating code
+- **Bandit:** Check for vulnerabilities   
+- **Docker:** Packaging and deployment
+- **Jenkins:** CI/CD
 
 Quickstart
 ----------
@@ -60,3 +65,22 @@ Application parts are:
     ├── domain                  - Business logic.
     ├── infrastructure          - external services of the application like db.
     └── main.py                 - FastAPI application entry point.
+
+Contributing
+-------------
+Contributions, issues and feature requests are welcome!
+
+1. Fork the Project
+2. Create your Feature Branch (git checkout -b feature/YourFeature)
+3. Commit your Changes (git commit -m 'Add My Feature')
+4. Push to the Branch (git push origin feature/YourFeature)
+5. Open a Pull Request
+
+Contact
+-----------------
+* Mail: slim.baccar91@gmail.com
+* Github: @slimovich
+
+Release Notes
+-----------------
+TODO
