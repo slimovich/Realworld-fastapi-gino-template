@@ -7,6 +7,7 @@ ifneq "$(SUPPORTS_MAKE_ARGS)" ""
 endif
 
 help:
+	@echo "  clean                       clean from cache file"
 	@echo "  install-dev-deps            install dev dependencies"
 	@echo "  build-dev                   build docker image for developement"
 	@echo "  build-prod                  build docker image for production"
@@ -19,70 +20,66 @@ help:
 	@echo "  run-local                   run the server in localhost with debug and autoreload mode"
 	@echo "  run                         run the server in the container"
 
+.PHONY: clean
+clean:
+	@echo "--> Cleaning pyc files"
+	find . -name "*.pyc" -delete
+
 .PHONY: install-dev-deps
 install-dev-deps:
 	pipenv install --dev
 
 .PHONY: build-dev
 build-dev:
-	@echo "###################################"
-	@echo "# Building development image"
+	@echo "--> Building development image"
 	docker-compose -f setup/docker/docker-compose.develop.yml build
 
 .PHONY: build-prod
 build-prod:
-	@echo "###################################"
-	@echo "# Building production image"
+	@echo "--> Building production image"
 	docker-compose -f setup/docker/docker-compose.production.yml build
 
 .PHONY: run-dev-containers
 run-dev-containers:
-	@echo "###################################"
-	@echo "# Running development containers"
+	@echo "--> Running development containers"
 	docker-compose -f setup/docker/docker-compose.develop.yml up
 
 .PHONY: run-prod-containers
 run-prod-containers:
-	@echo "###################################"
-	@echo "# Running production containers"
+	@echo "--> Running production containers"
 	docker-compose -f setup/docker/docker-compose.production.yml up
 
 .PHONY: test
 test:
-	@echo "###################################"
-	@echo "# Running unittest"
+	@echo "--> Running unittest"
 	pytest --verbose --cov=src --cov=tests --cov-report=term-missing --cov-report=xml:reports/coverage.xml --junit-xml=reports/tests.xml
 
 .PHONY: lint
 lint:
-	@echo "###################################"
-	@echo "# Lint the python code"
-	@[ -f ./reports/flake8.txt ] || (rm ./reports/flake8.txt)
+	@echo "--> Analyse code"
+	@[ -d ./reports/ ] || (rm -rf ./reports/flake8.txt)
+	mkdir ./reports/
 	flake8 src/ tests/
 	mypy src/ tests/
 
 .PHONY: format
 format:
-	@echo "###################################"
-	@echo "# Format the python code"
+	@echo "--> Format the python code"
 	autoflake --remove-all-unused-imports --remove-unused-variables  --recursive --in-place src/ tests/
 	black --line-length 100 src tests
 	isort --recursive --apply src tests
 
 .PHONY: check-vul
 check-vul:
-	@echo "###################################"
-	@echo "# Check vulnerabilities"
+	@echo "--> Check vulnerabilities"
 	bandit -r src/
 
 .PHONY: run-dev
 run-dev:
-	@echo "###################################"
-	@echo "# Running dev server"
+	@echo "--> Running dev server"
 	uvicorn src.core.server:app --reload --lifespan on --workers 1 --host 0.0.0.0 --port 8080 --log-level debug
 
 .PHONY: run
 run:
-	@echo "###################################"
-	@echo "# Running server"
+	@echo "--> Running server"
 	uvicorn src.core.server:app --lifespan on --workers 1 --host 0.0.0.0 --port 8080
