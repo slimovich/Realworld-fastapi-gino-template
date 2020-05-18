@@ -52,7 +52,7 @@ run-prod-containers:
 .PHONY: test
 test:
 	@echo "--> Running unittest"
-	pytest --verbose --cov=src --cov=tests --cov-report=term-missing --cov-report=xml:reports/coverage.xml --junit-xml=reports/tests.xml
+	pytest --verbose --cov=src --cov=tests --cov-report=term-missing --cov-report=xml:.artifacts/coverage.xml --junit-xml=.artifacts/tests.xml
 
 .PHONY: lint
 lint:
