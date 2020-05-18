@@ -20,7 +20,7 @@ __pycache__/
 log/
 
 # reports for code quality
-reports/
+.artifacts/
 
 # sonar scanner report
 .scannerwork/
