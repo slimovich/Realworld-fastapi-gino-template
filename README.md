@@ -1,3 +1,5 @@
+![Build](https://github.com/slimovich/fastapi-gino-postgresql-template/workflows/Build/badge.svg)
+
 *Under developement, WIP. Be patient.*
 
 Overview
