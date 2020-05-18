@@ -7,7 +7,7 @@ ifneq "$(SUPPORTS_MAKE_ARGS)" ""
 endif
 
 help:
-	@echo "  clean                       clean from cache file"
+	@echo "  clean                       clean files"
 	@echo "  install-dev-deps            install dev dependencies"
 	@echo "  build-dev                   build docker image for developement"
 	@echo "  build-prod                  build docker image for production"
