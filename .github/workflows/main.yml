@@ -32,10 +32,10 @@ jobs:
         pip install pipenv
         pipenv install --dev --system --deploy --ignore-pipfile
         
-    - name: Test
-      run: make test
-      
     - name: Analyse code
       run: |
         make lint
         make check-vul
+        
+    - name: Test
+      run: make test
