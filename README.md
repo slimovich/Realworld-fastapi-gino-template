@@ -81,7 +81,6 @@ Contributions, issues and feature requests are welcome!
 Contact
 -----------------
 * Mail: slim.baccar91@gmail.com
-* Github: @slimovich
 
 Release Notes
 -----------------
