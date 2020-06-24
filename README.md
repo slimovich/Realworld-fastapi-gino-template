@@ -9,7 +9,7 @@ This repository contains a skeleton app which can be used to speed-up your next 
 - **Fast-API:** Application with gino, async ORM
 - **hexagonal architecture:** Bettre code organisation
 - **Pipenv:** Package manager (Also creating virtual environement)
-- **inject:** For Dependencies injection
+- **inject:** Python library for Dependencies injection
 - **JWT:** Token authentication.
 - **Gino:** Async ORM used with AsyncPG and postgreSQL
 - **Alembic:** Database migrations

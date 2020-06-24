@@ -30,6 +30,7 @@ alembic = "==1.4.1"
 inject = "==4.1.2"
 pydantic = {extras = ["email"],version = "==1.5.1"}
 entrypoints = "==0.3"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.8"
