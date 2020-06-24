@@ -1,15 +1,40 @@
+import click
+import subprocess
+
 from src.core import server
 
 
-def database_migration() -> None:
-    # TODO
+@click.group('Fast-api App manager')
+def manage() -> None:
+    # the main group of commands
     pass
 
-
-def migrate_database() -> None:
-    # TODO
-    pass
-
-
+@manage.command(help='Run the web server')
 def run_server() -> None:
+    click.echo('-> Runnning the server')
     server.run()
+
+
+@manage.group(help="Manage the database")
+def database() -> None:
+    # group to manage data base
+    pass
+
+
+@database.command(help="create database")
+def create() -> int:
+    return subprocess.call(['alembic', 'upgrade', 'head'])
+
+
+@database.command(help="Make migration")
+def migration(msg: str) -> int:
+    return subprocess.call(['alembic', 'revision', '--autogenerate', '-m', f'{msg}'])
+
+
+@database.command(help="apply migration")
+def migrate() -> int:
+    return subprocess.call(['alembic', 'upgrade', 'head'])
+
+
+if __name__ == '__main__':
+    manage()
