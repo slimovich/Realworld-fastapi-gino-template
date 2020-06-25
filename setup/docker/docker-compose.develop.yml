@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: ../../
-      dockerfile: develop.dockerfile
+      dockerfile: docker-develop.dockerfile
     container_name: fastapi-app-develop-container
     image: fastapi-app-develop-image
     command: cd /app/ && make run

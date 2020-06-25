@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: ../../
-      dockerfile: production.dockerfile
+      dockerfile: docker-production.dockerfile
     container_name: fastapi-app-production-container
     image: fastapi-app-production-image
     command: /app/start.sh
