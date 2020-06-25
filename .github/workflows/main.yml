@@ -36,6 +36,12 @@ jobs:
       run: |
         make lint
         make check-vul
+
+    - name: Upload artifacts if failure
+      uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        path: .artifacts/
         
     - name: Test
       run: make test
