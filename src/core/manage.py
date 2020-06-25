@@ -1,4 +1,4 @@
-import subprocess
+import subprocess  # nosec
 
 import click
 
@@ -25,17 +25,17 @@ def database() -> None:
 
 @database.command(help="create database")
 def create() -> int:
-    return subprocess.call(["alembic", "upgrade", "head"]) # nosec
+    return subprocess.call(["alembic", "upgrade", "head"])  # nosec
 
 
 @database.command(help="Make migration")
 def migration(msg: str) -> int:
-    return subprocess.call(["alembic", "revision", "--autogenerate", "-m", f"{msg}"]) # nosec
+    return subprocess.call(["alembic", "revision", "--autogenerate", "-m", f"{msg}"])  # nosec
 
 
 @database.command(help="apply migration")
 def migrate() -> int:
-    return subprocess.call(["alembic", "upgrade", "head"]) # nosec
+    return subprocess.call(["alembic", "upgrade", "head"])  # nosec
 
 
 if __name__ == "__main__":
