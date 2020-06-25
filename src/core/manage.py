@@ -22,6 +22,7 @@ def database() -> None:
     # group to manage data base
     pass
 
+
 @database.command(help="create database")
 def create() -> int:
     return subprocess.call(["alembic", "upgrade", "head"])  # nosec
