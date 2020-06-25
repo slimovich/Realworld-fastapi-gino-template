@@ -61,6 +61,7 @@ lint:
 	mkdir ./.artifacts/
 	@echo "--> artifacts directory created"
 	flake8 src/ tests/
+	@echo "--> flake8 done"
 	mypy src/ tests/
 
 .PHONY: format
