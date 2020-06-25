@@ -57,9 +57,10 @@ test:
 .PHONY: lint
 lint:
 	@echo "--> Analyse code"
-	@[ -d ./.artifacts/ ] && (rm -rf ./.artifacts/)
 	mkdir ./.artifacts/
+	@echo "--> artifacts"
 	flake8 src/ tests/
+	@echo "--> flake8 done"
 	mypy src/ tests/
 
 .PHONY: format
