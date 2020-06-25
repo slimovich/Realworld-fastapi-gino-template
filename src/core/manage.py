@@ -1,17 +1,19 @@
-import click
 import subprocess
+
+import click
 
 from src.core import server
 
 
-@click.group('Fast-api App manager')
+@click.group("Fast-api App manager")
 def manage() -> None:
     # the main group of commands
     pass
 
-@manage.command(help='Run the web server')
+
+@manage.command(help="Run the web server")
 def run_server() -> None:
-    click.echo('-> Runnning the server')
+    click.echo("-> Runnning the server")
     server.run()
 
 
@@ -23,18 +25,18 @@ def database() -> None:
 
 @database.command(help="create database")
 def create() -> int:
-    return subprocess.call(['alembic', 'upgrade', 'head'])
+    return subprocess.call(["alembic", "upgrade", "head"]) # nosec
 
 
 @database.command(help="Make migration")
 def migration(msg: str) -> int:
-    return subprocess.call(['alembic', 'revision', '--autogenerate', '-m', f'{msg}'])
+    return subprocess.call(["alembic", "revision", "--autogenerate", "-m", f"{msg}"]) # nosec
 
 
 @database.command(help="apply migration")
 def migrate() -> int:
-    return subprocess.call(['alembic', 'upgrade', 'head'])
+    return subprocess.call(["alembic", "upgrade", "head"]) # nosec
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     manage()
