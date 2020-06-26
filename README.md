@@ -1,6 +1,10 @@
+> ### 🛠 Status: WIP
+>
+> *Under developement, WIP. Be patient.*
+
 ![Build](https://github.com/slimovich/fastapi-gino-postgresql-template/workflows/Build/badge.svg)
 
-*Under developement, WIP. Be patient.*
+A real wolrd template project using Fastapi framework as well as a full implementation of CI/CD
 
 Overview
 ----------
@@ -33,6 +37,7 @@ pip install pipenv
 ```bash
 PIPENV_DOTENV_LOCATION=local.env pipenv run make install-dev-deps
 ```
+The command above will install for you a separate environnement and installing all dependencies
 - run unit test
 ```bash
 PIPENV_DOTENV_LOCATION=local.env pipenv run make test
@@ -44,7 +49,29 @@ PIPENV_DOTENV_LOCATION=local.env pipenv run make run
 
 Deployment with Docker
 ----------------------
-TODO
+You must have docker and docker-compose tools installed in your system. Then just run:
+
+```bash
+make build-dev
+make run-dev-containers
+```
+
+This will build the images and run 3 containers (Fastapi application, PostgreSQL, PGAdmin 4) in developement environnement.
+
+If you want to run the containers in production environnement, you can do the following:
+
+```bash
+make build-prod
+make run-prod-containers
+```
+
+Your can find the files to configure each environnement in the root directory:
+- env-develop.env
+- env-production.env
+
+Application will be available on localhost in your browser.
+
+All routes are available on /docs paths with Swagger
 
 Sonar Qube
 ----------------------
