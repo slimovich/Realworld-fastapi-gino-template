@@ -57,17 +57,3 @@ LOGGING_CONFIG = {
         "uvicorn.access": {"handlers": ["access"], "level": "INFO", "propagate": False},
     },
 }
-
-##########################################################################
-# Dependicies injection settings
-##########################################################################
-
-
-def configure_inject() -> None:
-    from src.domain.userManagment.service.userService import UserService
-    from src.infrastructure.database.models.user import UserQueries
-
-    def config(binder: inject.Binder) -> None:
-        binder.bind(UserService, UserService(UserQueries()))
-
-    inject.configure(config)

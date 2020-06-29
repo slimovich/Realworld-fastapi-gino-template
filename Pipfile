@@ -23,7 +23,7 @@ bandit = "==1.6.2"
 [packages]
 gino = "==1.0.0"
 gino-starlette = "==0.1.1"
-fastapi = "==0.54.1"
+fastapi = "==0.58.1"
 uvicorn = "==0.11.5"
 gunicorn = "==20.0.4"
 alembic = "==1.4.1"

@@ -9,7 +9,6 @@ from src.core.config import (
     SERVER_ADRESS,
     SERVER_LOG_LEVEL,
     SERVER_PORT,
-    configure_inject,
 )
 from src.core.db import db
 
@@ -21,7 +20,6 @@ def create_app() -> FastAPI:
         LOGGER.info("Initiliase fast-API app")
         app = FastAPI()
         db.init_app(app=app)
-        configure_inject()
         app.include_router(api_router)
     except Exception as e:
         LOGGER.error(f"Error in fast-API app initialisation => {e}")
