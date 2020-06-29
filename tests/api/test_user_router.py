@@ -1,14 +1,13 @@
 from typing import Any
 
-import inject
 import pytest
 from fastapi import FastAPI
 from starlette import status
 from starlette.testclient import TestClient
 
 from src.api.api import api_router
+from src.api.utils import get_user_services
 from src.domain.userManagment.schema.user import UserDBSchema
-from src.domain.userManagment.service.userService import UserService
 from src.infrastructure.database.models.user import UserModel
 
 
@@ -38,11 +37,11 @@ class UserServiceDummy:
         return USER_MODEL
 
 
-@pytest.fixture
-def injector() -> None:
-    inject.clear_and_configure(
-        lambda binder: binder.bind(UserService, UserServiceDummy())  # type: ignore
-    )
+def get_user_services_dummy() -> UserServiceDummy:
+    return UserServiceDummy()
+
+
+app.dependency_overrides[get_user_services] = get_user_services_dummy
 
 
 @pytest.fixture
@@ -64,7 +63,7 @@ def user_schema() -> UserDBSchema:
 
 class TestUserRouter:
     def test_user_create_valide(
-        self, injector: None, user_model: UserModel, user_schema: UserDBSchema
+        self, user_model: UserModel, user_schema: UserDBSchema
     ) -> None:
 
         response = client.post(
@@ -76,7 +75,7 @@ class TestUserRouter:
                 "is_active": True,
                 "is_superuser": False,
                 "created_date": "1/1/2020",
-            },
+            }
         )
         assert response.status_code == status.HTTP_200_OK
         assert response.json() == user_schema.__dict__
