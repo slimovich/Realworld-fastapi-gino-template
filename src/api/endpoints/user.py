@@ -1,6 +1,5 @@
 from typing import List, Optional
 
-import inject
 from fastapi import APIRouter, HTTPException, Depends
 from starlette import status
 
