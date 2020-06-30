@@ -20,7 +20,7 @@ def create_app() -> FastAPI:
         LOGGER.info("Initiliase fast-API app")
         app = FastAPI()
         db.init_app(app=app)
-        app.include_router(api_router)
+        app.include_router(api_router, prefix="/api/v1")
     except Exception as e:
         LOGGER.error(f"Error in fast-API app initialisation => {e}")
     return app
