@@ -10,12 +10,13 @@ Overview
 ----------
 This repository contains a skeleton app which can be used to speed-up your next project.
 
-- **Fast-API:** Application with gino, async ORM, Dependencies injection
-- **hexagonal architecture:** Bettre code organisation
-- **Pipenv:** Package manager (Also creating virtual environement)
-- **JWT:** Token authentication.
+- **Fast-API:** Asynchronous RESTful API, Dependencies injection
 - **Gino:** Async ORM used with AsyncPG and postgreSQL
 - **Alembic:** Database migrations
+- **hexagonal architecture:** Bettre code organisation
+- **Pipenv:** Package manager (Also creating virtual environement)
+- **Pytest:** Run unit test with code coverage
+- **JWT:** Token authentication.
 - **PGAdmin4:** Client for postgreSQL
 - **Makefile:** Building project
 - **SonarQube:** Analysing code and interpreting pytest and cov report
@@ -32,18 +33,27 @@ for running the server locally
 ```bash
 pip install pipenv
 ```
+
+- setup a local environnement
+```bash
+source setup/scripts/setEnv.sh
+```
+
 - install the dependencies locally
 ```bash
-PIPENV_DOTENV_LOCATION=local.env pipenv run make install-dev-deps
+pipenv run make install-dev-deps
 ```
+
 The command above will install for you a separate environnement and installing all dependencies
+
 - run unit test
 ```bash
-PIPENV_DOTENV_LOCATION=local.env pipenv run make test
+pipenv run make test
 ```
+
 - run the local server with localhost:8080
 ```bash
-PIPENV_DOTENV_LOCATION=local.env pipenv run make run
+pipenv run make run
 ```
 
 Deployment with Docker
