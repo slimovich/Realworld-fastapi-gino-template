@@ -17,8 +17,8 @@ help:
 	@echo "  lint                        check the source for style errors"
 	@echo "  format                      format the python code"
 	@echo "  check-vul                   check vulnerabilities"
-	@echo "  run-local                   run the server in localhost with debug and autoreload mode"
-	@echo "  run                         run the server in the container"
+	@echo "  run-local                   run the server in localhost with debug and autoreload (developpement mode)"
+	@echo "  run                         run the server in localhost (production mode)"
 
 .PHONY: clean
 clean:
