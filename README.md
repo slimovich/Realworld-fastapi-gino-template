@@ -3,6 +3,7 @@
 > *Under developement, WIP. Be patient.*
 
 ![Build](https://github.com/slimovich/fastapi-gino-postgresql-template/workflows/Build/badge.svg)
+[![Build Status](https://github.com/slimovich/fastapi-gino-postgresql-template/)](https://github.com/slimovich/fastapi-gino-postgresql-template/workflows/Build/badge.svg)
 
 A real wolrd template project using Fastapi framework as well as a full implementation of CI/CD
 
@@ -10,7 +11,7 @@ Overview
 ----------
 This repository contains a skeleton app which can be used to speed-up your next project.
 
-- **Fast-API:** Asynchronous RESTful API, Dependencies injection
+- **Fast-API:** Asynchronous RESTful API Framework
 - **Gino:** Async ORM used with AsyncPG and postgreSQL
 - **Alembic:** Database migrations
 - **hexagonal architecture:** Bettre code organisation
