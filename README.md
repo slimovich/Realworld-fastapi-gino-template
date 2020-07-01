@@ -2,8 +2,7 @@
 >
 > *Under developement, WIP. Be patient.*
 
-![Build](https://github.com/slimovich/fastapi-gino-postgresql-template/workflows/Build/badge.svg)
-[![Build Status](https://github.com/slimovich/fastapi-gino-postgresql-template/)](https://github.com/slimovich/fastapi-gino-postgresql-template/workflows/Build/badge.svg)
+![Build Status](https://github.com/slimovich/fastapi-gino-postgresql-template/workflows/Build/badge.svg)
 
 A real wolrd template project using Fastapi framework as well as a full implementation of CI/CD
 
