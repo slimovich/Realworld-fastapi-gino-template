@@ -35,7 +35,7 @@ app: FastAPI = create_app()
 async def _startup() -> None:
     LOGGER.info("Check existing database")
     database: bool = await existing_database(db, DB_NAME)
-    
+
     if not database:
         LOGGER.error(f"please create the required database before running the server db_name = {DB_NAME}")
     else:
