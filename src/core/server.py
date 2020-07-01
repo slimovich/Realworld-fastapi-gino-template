@@ -5,12 +5,14 @@ from fastapi import FastAPI
 
 from src.api.api import api_router
 from src.core.config import (
+    DB_NAME,
     LOGGING_CONFIG,
     SERVER_ADRESS,
     SERVER_LOG_LEVEL,
     SERVER_PORT,
 )
 from src.core.db import db
+from src.utils.sql import existing_database
 
 LOGGER = logging.getLogger(__name__)
 
@@ -31,12 +33,13 @@ app: FastAPI = create_app()
 
 @app.on_event("startup")
 async def _startup() -> None:
-    try:
-        LOGGER.info("Create tables")
-        # await db.gino.drop_all()
-        await db.gino.create_all()
-    except Exception as e:
-        LOGGER.error(f"Error in startup for tables creation => {e}")
+    LOGGER.info("Check existing database")
+    database: bool = await existing_database(db, DB_NAME)
+    
+    if not database:
+        LOGGER.error(f"please create the required database before running the server db_name = {DB_NAME}")
+    else:
+        LOGGER.info("database checked")
 
 
 def run() -> None:
