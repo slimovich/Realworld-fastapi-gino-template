@@ -1,9 +1,9 @@
-from typing import List
+from typing import List, Optional
 
 from gino.ext.starlette import Gino
 
 
-async def existing_database(db: Gino, name: str) -> bool:
+async def existing_database(db: Gino, name: Optional[str]) -> bool:
     """ Return the names of existing database """
 
     query: str = """
