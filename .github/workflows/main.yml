@@ -40,19 +40,5 @@ jobs:
     - name: Test
       run: make test
 
-    - name: Upload test report if failure
-      uses: actions/upload-artifact@v2
-      if: failure()
-      with:
-        name: tests-report
-        path: .artifacts/tests.xml
-
-    - name: Upload flake8 report if failure
-      uses: actions/upload-artifact@v2
-      if: failure()
-      with:
-        name: flake8-report
-        path: .artifacts/flake8.txt
-
     - name: Code coverage
       run: bash <(curl -s https://codecov.io/bash)
