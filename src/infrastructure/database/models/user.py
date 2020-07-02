@@ -1,8 +1,8 @@
 from typing import List
 
 from src.core.db import db
-from src.domain.userManagment.interface.queries import IUserQueries
-from src.domain.userManagment.schema.user import UserCreateSchema, UserUpdateSchema
+from src.domain.userManagment.queriesInterface import IUserQueries
+from src.domain.userManagment.userSchema import UserCreateSchema, UserUpdateSchema
 
 
 class UserModel(db.Model):

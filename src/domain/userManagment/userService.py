@@ -1,6 +1,6 @@
 from typing import Any, List, Optional
 
-from src.domain.userManagment.schema.user import UserCreateSchema, UserDBSchema, UserUpdateSchema
+from src.domain.userManagment.userSchema import UserCreateSchema, UserDBSchema, UserUpdateSchema
 
 
 class UserService:

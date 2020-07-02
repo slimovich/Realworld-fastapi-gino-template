@@ -1,4 +1,4 @@
-from src.domain.userManagment.service.userService import UserService
+from src.domain.userManagment.userService import UserService
 from src.infrastructure.database.models.user import UserQueries
 
 

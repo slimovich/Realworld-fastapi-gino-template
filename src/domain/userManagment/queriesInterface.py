@@ -4,7 +4,7 @@ from __future__ import annotations
 from abc import abstractmethod
 from typing import TYPE_CHECKING, List
 
-from src.domain.userManagment.schema.user import UserCreateSchema, UserUpdateSchema
+from src.domain.userManagment.userSchema import UserCreateSchema, UserUpdateSchema
 
 if TYPE_CHECKING:
     from src.infrastructure.database.models.user import UserModel

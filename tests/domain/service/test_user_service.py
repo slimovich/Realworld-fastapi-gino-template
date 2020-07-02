@@ -2,8 +2,8 @@ from typing import Any, List
 
 import pytest
 
-from src.domain.userManagment.schema.user import UserCreateSchema, UserDBSchema, UserUpdateSchema
-from src.domain.userManagment.service.userService import UserService
+from src.domain.userManagment.userSchema import UserCreateSchema, UserDBSchema, UserUpdateSchema
+from src.domain.userManagment.userService import UserService
 from src.infrastructure.database.models.user import UserModel
 
 USER_MODEL = UserModel(

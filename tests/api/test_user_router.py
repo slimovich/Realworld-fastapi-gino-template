@@ -7,7 +7,7 @@ from starlette.testclient import TestClient
 
 from src.api.api import api_router
 from src.api.utils import get_user_services
-from src.domain.userManagment.schema.user import UserDBSchema
+from src.domain.userManagment.userSchema import UserDBSchema
 from src.infrastructure.database.models.user import UserModel
 
 

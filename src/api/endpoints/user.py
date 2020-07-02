@@ -4,8 +4,8 @@ from fastapi import APIRouter, HTTPException, Depends
 from starlette import status
 
 from src.api.utils import get_user_services
-from src.domain.userManagment.schema.user import UserCreateSchema, UserDBSchema, UserUpdateSchema
-from src.domain.userManagment.service.userService import UserService
+from src.domain.userManagment.userSchema import UserCreateSchema, UserDBSchema, UserUpdateSchema
+from src.domain.userManagment.userService import UserService
 
 router = APIRouter()
 
