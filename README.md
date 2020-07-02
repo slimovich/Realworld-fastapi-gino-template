@@ -5,7 +5,9 @@
 ![Build Status](https://github.com/slimovich/fastapi-gino-postgresql-template/workflows/Build/badge.svg)
 [![codecov](https://codecov.io/gh/slimovich/Realworld-fastapi-gino-template/branch/master/graph/badge.svg)](https://codecov.io/gh/slimovich/Realworld-fastapi-gino-template)
 
-A real wolrd template project using Fastapi framework as well as a full implementation of CI/CD
+A real wolrd template project using Fastapi framework as well as a full implementation of CI/CD.
+
+Introduction to many of FastAPI's features, including pydantic models, dependency injection, and Gino (Async ORM) integration, using hexagonal architecture.
 
 Overview
 ----------
