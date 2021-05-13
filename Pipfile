@@ -27,7 +27,7 @@ fastapi = "==0.58.1"
 uvicorn = "==0.11.7"
 gunicorn = "==20.0.4"
 alembic = "==1.4.1"
-pydantic = {extras = ["email"],version = "==1.5.1"}
+pydantic = {extras = ["email"],version = "==1.6.2"}
 entrypoints = "==0.3"
 psycopg2 = "*"
 
